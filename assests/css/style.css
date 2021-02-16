@@ -1,0 +1,48 @@
+*{
+    background-image: lightgrey;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+.info_box{
+    font-size: 0.1em;
+    position: relative;
+    overflow-wrap: break-word;
+}
+
+.info-title{
+    font-size: 20em;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, 200%);
+}
+
+.info-text{
+    position: absolute;
+    top:10rem;
+    left:20rem;
+    font-size: 15px;
+}
+
+.startbtn{
+    position: absolute;
+    top:15rem;
+    left:45%;
+}
+
+#score{
+    position: absolute;
+    top:0px;
+    left:0%;
+}
+
+#time{
+    position: absolute;
+    top:0px;
+    left:80%;
+}
+
+.hide{
+    display: none;
+}
