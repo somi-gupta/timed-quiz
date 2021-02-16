@@ -4,30 +4,34 @@
     font-size: 1em;
 }
 
-.info_box{
-    font-size: 0.1em;
+.info_box {
+    width:50rem;
+    height:12rem;
+    left:20%;
+    top:100px;
+    background-color: blue;
     position: relative;
-    overflow-wrap: break-word;
-}
+    font-size: 2em;
+    text-align: center;
 
+}
+/* 
 .info-title{
-    font-size: 20em;
+    font-size: 2em;
     position: absolute;
-    top:50%;
-    left: 50%;
+    top:-40%;
+    left: 40%;
     transform: translate(-50%, 200%);
 }
 
 .info-text{
     position: absolute;
-    top:10rem;
-    left:20rem;
-    font-size: 15px;
-}
+    top: 5rem;
+} */
 
 .startbtn{
     position: absolute;
-    top:15rem;
+    top:20rem;
     left:45%;
 }
 
@@ -43,6 +47,4 @@
     left:80%;
 }
 
-.hide{
-    display: none;
-}
+
