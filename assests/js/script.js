@@ -75,5 +75,16 @@ function userAnswer(event) {
 }
 
 function score(){
+    questions.innerHTML = "";
+    timeLabel.innerHTML = "";
+
+    var scoreContent = document.createElement("p");
+    scoreContent.setAttribute("id", "scoreContent");
+
+    if(timeleft >= 0){
+        var userScore = timeleft;
+        clearInterval(timerInterval);
+        scoreContent.textContent = "Your final score is: " + timeLeft;
+    }
 
 }
