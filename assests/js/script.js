@@ -2,8 +2,9 @@ var startButton = document.querySelector(".startbtn");
 var timeLabel = document.querySelector("#time");
 var scoreLabel = document.querySelector("#score");
 var questions = document.querySelector(".quiz_ques");
-var quesOptions = document.querySelector(".option_list");
 var infoBox = document.querySelector(".info_box");
+let choiceBox = document.createElement("ul");
+var answerBlock  = document.querySelector("#showAnswer");
 var questionIndex = 0;
 var questionsCorrect = 0;
 var timeleft = jsQuestions.length * 10;
@@ -35,38 +36,42 @@ function startQuiz(questionIndex) {
   infoBox.setAttribute("style", "visibility: hidden");
   startButton.setAttribute("style", "visibility: hidden");
 
-  var questionArray = jsQuestions[questionIndex].title;
-  var choices = jsQuestions[questionIndex].choices;
-  questions.textContent = questionArray;
-  let choiceBox = document.createElement("ul");
-  questions.appendChild(choiceBox);
+  choiceBox.innerHTML = "";
 
-  choices.forEach(function (x) {
-    let listChoice = document.createElement("li");
+  var questionArray = jsQuestions[questionIndex].title;
+  var choicesArray = jsQuestions[questionIndex].choices;
+  questions.textContent = questionArray;
+
+  choicesArray.forEach(function (x) {
+    var listChoice = document.createElement("li");
     listChoice.textContent = x;
-    questions.appendChild(quesOptions);
-    quesOptions.appendChild(listChoice);
+    questions.appendChild(choiceBox);
+    choiceBox.appendChild(listChoice);
 
     listChoice.addEventListener("click", userAnswer);
-  });
+
+  })
+
 }
 
 function userAnswer(event) {
   var element = event.target;
-  var ans = jsQuestions[questionIndex].answer;
-  console.log(element.textContent);
 
-  if (element.textContent == ans) {
-    questionsCorrect++;
-    var answerFeedback = document.createElement("div");
-    answerFeedback.textContent = "Correct! The answer was: " + jsQuestions[questionIndex].answer;
-    console.log("Corret answer");
+  if (element.matches("li")) {
+
+  if (element.textContent === jsQuestions[questionIndex].answer) {
+    // alert("Correct answer");
+    answerBlock.textContent = "Correct!";
   } else {
     timeleft = timeleft - 10;
+    answerBlock.textContent = "Incorrect!";
   }
-  questionIndex++;
+}
 
+  questionIndex++;
   if (questionIndex >= jsQuestions.length) {
+      console.log("jsQuestions: " ,questionIndex >= jsQuestions.length);
+      console.log(questionIndex);
     score();
   } else {
     startQuiz(questionIndex);
@@ -76,6 +81,7 @@ function userAnswer(event) {
 function score(){
     questions.innerHTML = "";
     timeLabel.innerHTML = "";
+    answerBlock.innerHTML = "";
 
     var scoreContent = document.createElement("p");
     scoreContent.setAttribute("id", "scoreContent");
@@ -83,7 +89,7 @@ function score(){
     if(timeleft >= 0){
         var userScore = timeleft;
         clearInterval(timerInterval);
-        scoreContent.textContent = "Your final score is: " + timeLeft;
+        scoreContent.textContent = "Your final score is: " + userScore;
     }
 
 }
