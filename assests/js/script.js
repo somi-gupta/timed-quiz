@@ -33,8 +33,8 @@ function setTime() {
 
 //Function to render questions and answer options.
 function startQuiz(questionIndex) {
-  infoBox.setAttribute("style", "visibility: hidden");
-  startButton.setAttribute("style", "visibility: hidden");
+    infoBox.innerHTML = "";
+    startButton.setAttribute("style", "visibility: hidden");
 
   choiceBox.innerHTML = "";
 
@@ -83,13 +83,16 @@ function score(){
     timeLabel.innerHTML = "";
     answerBlock.innerHTML = "";
 
-    var scoreContent = document.createElement("p");
-    scoreContent.setAttribute("id", "scoreContent");
-
     if(timeleft >= 0){
         var userScore = timeleft;
         clearInterval(timerInterval);
-        scoreContent.textContent = "Your final score is: " + userScore;
+        var message = "All Done!. \n Your final score is: " ;
+        infoBox.textContent = message + userScore ;
+
+        var label = document.createElement("label");
+        label.htmlFor = "Enter Initials"
+        var input = document.createElement("input");
+        input.type = "text";
     }
 
 }
