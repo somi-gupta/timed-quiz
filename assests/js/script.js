@@ -54,13 +54,12 @@ function startQuiz(questionIndex) {
 function userAnswer(event) {
   var element = event.target;
   var ans = jsQuestions[questionIndex].answer;
-  console.log(ans);
+  console.log(element.textContent);
 
   if (element.textContent == ans) {
     questionsCorrect++;
     var answerFeedback = document.createElement("div");
-    answerFeedback.textContent =
-      "Correct! The answer was: " + jsQuestions[questionIndex].answer;
+    answerFeedback.textContent = "Correct! The answer was: " + jsQuestions[questionIndex].answer;
     console.log("Corret answer");
   } else {
     timeleft = timeleft - 10;
