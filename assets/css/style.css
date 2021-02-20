@@ -1,0 +1,38 @@
+*{
+    /* background-image: lightgrey; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+.info_box {
+    width:50rem;
+    height:12rem;
+    left:20%;
+    top:100px;
+    /* background-color:white; */
+    position: relative;
+    font-size: 2em;
+    text-align: center;
+
+}
+
+.startbtn{
+    position: absolute;
+    top:12rem;
+    left:45%;
+    font-size: 20px;
+}
+
+#score{
+    position: absolute;
+    top:0px;
+    left:0%;
+}
+
+#time{
+    position: absolute;
+    top:0px;
+    left:80%;
+}
+
+
