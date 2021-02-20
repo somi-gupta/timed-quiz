@@ -24,7 +24,7 @@ Code language used javascipt, html and CSS.
 # Tests
 
 # Deployed application link
-Please navigate to the application via: https://github.com/somi-gupta/timed-quiz.
+Please navigate to the application via: https://somi-gupta.github.io/timed-quiz/ 
 
 # Screenshot of the deployed application
 ![Timed Quiz](./assets/images/application-screenshot.jpg?raw=true)
