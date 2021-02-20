@@ -27,4 +27,4 @@ Code language used javascipt, html and CSS.
 Please navigate to the application via: https://github.com/somi-gupta/timed-quiz.
 
 # Screenshot of the deployed application
-![Password Generator](./assets/images/timed-quiz-screenshot.jpg?raw=true)
+![Timed Quiz](./assets/images/timed-quiz-screenshot.jpg?raw=true)
