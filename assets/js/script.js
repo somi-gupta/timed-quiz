@@ -67,7 +67,7 @@ function userAnswer(event) {
   }
   questionIndex++;
   setTimeout(function () {
-    if (questionIndex >= jsQuestions.length) {
+    if (questionIndex >= jsQuestions.length || timeleft==0) {
       score();
     } else {
       startQuiz(questionIndex);
