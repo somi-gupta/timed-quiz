@@ -6,7 +6,6 @@ var questions = document.querySelector(".quiz_ques");
 var infoBox = document.querySelector(".info_box");
 let choiceBox = document.createElement("ul");
 var answerBlock = document.querySelector("#showAnswer");
-// var pTags = document.querySelectorAll("p");
 var inputBox = document.createElement("input");
 var questionIndex = 0;
 var questionsCorrect = 0;
@@ -39,7 +38,7 @@ function setTime() {
 function startQuiz(questionIndex) {
   infoBox.innerHTML = "";
   choiceBox.innerHTML = "";
-
+  answerBlock.setAttribute("style", "visibility:hidden");
   var questionArray = jsQuestions[questionIndex].title;
   var choicesArray = jsQuestions[questionIndex].choices;
   questions.textContent = questionArray;
@@ -57,31 +56,30 @@ function startQuiz(questionIndex) {
 //function to set answer
 function userAnswer(event) {
   var element = event.target;
-
   if (element.matches("li")) {
+    answerBlock.setAttribute("style", "visibility:visible");
     if (element.textContent === jsQuestions[questionIndex].answer) {
       answerBlock.textContent = "Correct!";
-
     } else {
       timeleft = timeleft - 10;
       answerBlock.textContent = "Incorrect!";
     }
   }
   questionIndex++;
-  if (questionIndex >= jsQuestions.length) {
-    score();
-  } else {
-    startQuiz(questionIndex);
-    answerBlock.setAttribute("style", "visibilyt:hidden");
-
-  }
+  setTimeout(function () {
+    if (questionIndex >= jsQuestions.length) {
+      score();
+    } else {
+      startQuiz(questionIndex);
+    }
+  }, 500);
 }
 
 //function to get score and submitting initails
 function score() {
   questions.innerHTML = "";
   timeLabel.innerHTML = "";
-  answerBlock.innerHTML = "";
+  answerBlock.setAttribute("style", "visibility:hidden");
 
   if (timeleft >= 0) {
     var userScore = timeleft;
@@ -120,7 +118,7 @@ function score() {
         label.append(errorMsg);
       } else {
         var inputInit = inputBox.value + " - " + timeleft;
-        //Pusshing initials and score into an array
+        //Pushing initials and score into an array
         initialsArr.push(inputInit);
         //Stringfy the array
         localStorage.setItem("userInitials", JSON.stringify(initialsArr));
@@ -157,21 +155,21 @@ function renderhighScore() {
 
     listChoice.textContent = init;
     listChoice.setAttribute("data-index", i);
-
+    listChoice.setAttribute("style", "list-style:none");
   }
   initialList.appendChild(listChoice);
 
-    //Return and higscore button css
-    returnButton.textContent = "Return";
-    returnButton.style.marginRight = "20px";
-    returnButton.style.fontSize = "20px";
+  //Return and higscore button css
+  returnButton.textContent = "Return";
+  returnButton.style.marginRight = "20px";
+  returnButton.style.fontSize = "20px";
 
-    clearHighScore.textContent = "Clear HighScore";
-    clearHighScore.style.fontSize = "20px";
+  clearHighScore.textContent = "Clear HighScore";
+  clearHighScore.style.fontSize = "20px";
 
-    highScore.append(returnButton);
-    highScore.append(clearHighScore);
-    returnButton.addEventListener("click", function (event) {
+  highScore.append(returnButton);
+  highScore.append(clearHighScore);
+  returnButton.addEventListener("click", function (event) {
     event.preventDefault();
     setInfo();
   });
