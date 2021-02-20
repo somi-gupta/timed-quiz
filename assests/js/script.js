@@ -72,7 +72,7 @@ function userAnswer(event) {
     score();
   } else {
     startQuiz(questionIndex);
-    answerBlock.textContent = "";
+    answerBlock.setAttribute("style", "visibilyt:hidden");
 
   }
 }
